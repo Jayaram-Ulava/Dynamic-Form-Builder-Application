@@ -1,0 +1,36 @@
+<div style="margin:20px;">
+  <h2>Form Builder</h2>
+  <mat-form-field appearance="fill">
+    <mat-label>Form Name</mat-label>
+    <input matInput [(ngModel)]="templateName">
+  </mat-form-field>
+
+  <form [formGroup]="fieldForm" (ngSubmit)="addField()">
+    <mat-form-field appearance="fill">
+      <mat-label>Field Label</mat-label>
+      <input matInput formControlName="label">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Field Type</mat-label>
+      <mat-select formControlName="type">
+        <mat-option value="text">Text</mat-option>
+        <mat-option value="textarea">Textarea</mat-option>
+        <mat-option value="dropdown">Dropdown</mat-option>
+        <mat-option value="checkbox">Checkbox</mat-option>
+        <mat-option value="radio">Radio</mat-option>
+        <mat-option value="date">Date</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-checkbox formControlName="required">Required</mat-checkbox>
+    <button mat-raised-button color="primary" type="submit">Add Field</button>
+  </form>
+
+  <h3>Fields</h3>
+  <mat-list>
+    <mat-list-item *ngFor="let f of fields; let i = index">
+      {{ f.label }} ({{ f.type }}) <button mat-icon-button (click)="removeField(i)"><mat-icon>delete</mat-icon></button>
+    </mat-list-item>
+  </mat-list>
+
+  <button mat-raised-button color="accent" (click)="saveForm()">Save Form</button>
+</div>

@@ -1,0 +1,13 @@
+.form-list-container {
+  padding: 24px;
+}
+mat-list-item {
+  border-bottom: 1px solid #eee;
+}
+.form-list {
+  
+}
+.form-list-container {
+  margin: 20px;
+  width: 600px;
+}

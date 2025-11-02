@@ -1,0 +1,22 @@
+<div style="margin:50px;" class="form-list">
+  <h2>Form Templates</h2>
+  <button *ngIf="auth.isAdmin()" routerLink="/builder" mat-raised-button color="primary" style="margin-bottom: 20px;">
+    Create New Form
+  </button>
+  <div class="form-list-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+    <mat-card *ngFor="let form of templates$ | async" class="form-list-card">
+      <mat-card-header>
+        <mat-card-title>{{ form.name }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-actions>
+        <button mat-icon-button [routerLink]="['/builder', form.id]" *ngIf="auth.isAdmin()" aria-label="Edit">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="deleteForm(form.id)" *ngIf="auth.isAdmin()" aria-label="Delete">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-raised-button color="accent" [routerLink]="['/fill', form.id]">Fill Form</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

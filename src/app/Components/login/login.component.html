@@ -1,0 +1,13 @@
+<div style="display:flex; justify-content:center; margin-top:50px;">
+  <mat-card style="width:300px;">
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-content>
+      <mat-radio-group [(ngModel)]="selectedRole">
+        <mat-radio-button value="admin"></mat-radio-button>
+        <mat-radio-button value="user">User</mat-radio-button>
+      </mat-radio-group>
+      <br/><br/>
+      <button mat-raised-button color="primary" (click)="login()">Login</button>
+    </mat-card-content>
+  </mat-card>
+</div>
